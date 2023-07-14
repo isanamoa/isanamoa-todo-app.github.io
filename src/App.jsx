@@ -56,7 +56,7 @@ const reducer = (state, action) => {
       return todoDeleted;
     }
     default:
-      return newstate;
+      return state;
   }
 }
 
@@ -65,12 +65,12 @@ function App() {
   const [todos, dispatch] = useReducer(reducer, todoStorage)
 
   const darkModeButton = () =>{
-    setIsDarkMode(!isdarkMode);
+    setIsDarkMode(prev => !prev);
   }
 
   return (
-    <todoContext.Provider value={{todos, dispatch}}>
-      <div className={`h-screen  md:h-fit w-full pb-20 ${!isdarkMode ? "bg-[#F2F2F2]":"dark:bg-slate-800"}`}>
+    <todoContext.Provider value={{todos, isdarkMode, dispatch, setIsDarkMode}}>
+      <div className={`min-h-screen w-full pb-20 ${!isdarkMode ? "bg-[#F2F2F2]":"dark:bg-slate-800"}`}>
         <Header modeButton={darkModeButton} mode={isdarkMode}/>
         <div className="md:w-1/2 md:mx-auto mt-8">
           <TodoCard />

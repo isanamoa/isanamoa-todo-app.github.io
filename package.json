@@ -1,6 +1,6 @@
 {
   "homepage": "https://isanamoa.github.io/todo_app",
-  "name": "new-todo-app",
+  "name": "todo_app",
   "private": true,
   "version": "0.0.0",
   "type": "module",
